@@ -1,0 +1,97 @@
+{% extends 'basead.html' %}
+
+{% block content %}
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+  
+    th, td {
+      border: none;
+      padding: 7px;
+    }
+  
+    th {
+      background-color: #d7d0d0;
+      color: #333;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 12px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+  
+    tr:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+  
+    tr:hover {
+      background-color: #dadada;
+    }
+  
+    .unread {
+      font-weight: bold;
+    }
+    
+    .star {
+      color: #f2ce2e;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    
+    .star:hover {
+      color: #e0be16;
+    }
+  
+    .sender {
+      font-weight: bold;
+    }
+  
+    .subject {
+      max-width: 400px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    .time {
+      color: #999;
+      font-size: 12px;
+    }
+  </style>
+  
+  <div class="home-content">
+    <section id="contacts">
+        <h1 style="text-align: center;">Customer Feedback</h1>
+      <table>
+        <thead>
+          <tr>
+            
+                     <th>Name</th>
+                      <th>E-mail</th>
+                      <th>Subject</th>
+                      <th>Message</th>
+                      <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+         {% for i in data %}
+         <tr>
+                            <td>{{ i.name }}</td>
+                          <td>{{ i.email }}</td>
+                          <td>{{ i.subject }}</td>
+                          <td>{{ i.message }}</td>
+                          <td>
+                              <button class="remove-item-btn"><a href=""
+                                    style="text-decoration: none; color: white;"> Comming Soon</a></button>
+                          </td>
+                          </tr>
+         
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </div>
+  
+{% endblock %}
